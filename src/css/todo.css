@@ -1,0 +1,98 @@
+/* STYLES TODO */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #d7f9ff;
+  font-size: 15px;
+}
+body {
+  margin-top: 10vh;
+}
+
+.taskDiv {
+  background-color: #afcbffa9;
+  border-radius: 10px;
+}
+
+/* FLEX ALIGN ITEMS input */
+#toDoList div {
+  display: flex;
+  align-items: center;
+}
+
+#toDoList {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0e1c36;
+  width: 500px;
+  height: fit-content;
+  min-height: 500px;
+  padding: 30px 20px;
+  border-radius: 25px;
+}
+
+#toDoList input {
+  width: 350px;
+  height: 45px;
+  border: 3px solid #afcbff;
+  background-color: #0e1c36;
+  color: #d7f9ff;
+  border-radius: 20px;
+  padding: 0 20px 0 20px;
+}
+
+.taskDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: -50px;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+/* ADD BTN  */
+#addTaskBtn {
+  margin-left: 10px;
+  font-size: 35px;
+}
+#addTaskBtn:hover {
+  color: #afcbff;
+}
+
+.textParagraph {
+  width: 300px;
+  overflow-wrap: break-word;
+  height: auto;
+  text-align: left;
+}
+#taskList .taskDiv .checkboxToDo {
+  height: 40px;
+  width: 40px;
+  order: 3;
+  accent-color: #afcbff;
+  margin-right: 10px;
+}
+
+.deleteButton {
+  height: 40px;
+  width: 40px;
+  order: 2;
+}
+#taskList {
+  background-color: #0e1c36;
+}
+
+/* DELETE BUTTON STYLING */
+#taskList a {
+  font-size: 2rem;
+  margin-bottom: -2px;
+}
+#taskList a:hover {
+  color: #ff5a5f;
+}
+.completedTask {
+  background-color: rgba(127, 255, 212, 0.479);
+}
