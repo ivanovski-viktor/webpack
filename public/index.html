@@ -4,15 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script
-      src="https://kit.fontawesome.com/485b754357.js"
-      crossorigin="anonymous"
-    ></script>
   </head>
   <body>
     <div class="carousel-container">
       <button id="prevBtn">
-        <i class="fa-solid fa-chevron-left fa-2x"></i>
+        <i class="bi bi-caret-left-fill custom-icon"></i>
       </button>
       <div class="carousel">
         <div class="slide" style="background-image: url('./image1.jpg')"></div>
@@ -20,23 +16,30 @@
         <div class="slide" style="background-image: url('./image3.jpg')"></div>
       </div>
       <button id="nextBtn">
-        <i class="fa-solid fa-chevron-right fa-2x"></i>
+        <i class="bi bi-caret-right-fill custom-icon"></i>
       </button>
+      <div class="carousel_nav">
+        <!-- <span class="carousel_button"></span>
+        <span class="carousel_button"></span>
+        <span class="carousel_button"></span> -->
+      </div>
     </div>
 
     <center>
       <div id="toDoList">
-        <h1>ADD A TASK:</h1>
         <div>
-          <!-- Input field with limitaton -->
-          <input
-            id="inputTaskField"
-            name="inputTaskField"
-            type="text"
-            maxlength="50"
-            required
-          />
-          <i id="addTaskBtn" class="fa-solid fa-circle-plus"></i>
+          <h1>Today's Tasks:</h1>
+          <div id="inputDiv">
+            <!-- Input field with limitaton -->
+            <input
+              id="inputTaskField"
+              name="inputTaskField"
+              type="text"
+              maxlength="50"
+              required
+            />
+            <i id="addTaskBtn" class="bi bi-plus-square-fill icon-custom"></i>
+          </div>
         </div>
         <ul id="taskList"></ul>
       </div>

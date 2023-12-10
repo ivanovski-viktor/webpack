@@ -20,33 +20,75 @@ function createTask() {
   let textParagraph = document.createElement("p");
   textParagraph.classList.add("textParagraph");
 
-  let deleteButton = document.createElement("a");
-  deleteButton.classList.add("fa-solid", "fa-trash");
+  let buttonDiv = document.createElement("div");
+  buttonDiv.classList.add("buttonDiv");
 
-  let checkboxToDo = document.createElement("input");
-  checkboxToDo.type = "checkbox";
-  checkboxToDo.classList.add("checkboxToDo");
+  let editButton = document.createElement("i");
+  editButton.classList.add(
+    "bi",
+    "bi-pencil-square",
+    "icon-custom",
+    "icon-edit"
+  );
+
+  let deleteButton = document.createElement("i");
+  deleteButton.classList.add("bi", "bi-x-square", "icon-custom", "icon-delete");
+
+  let completedTask = document.createElement("i");
+  completedTask.classList.add(
+    "bi",
+    "bi-check-square",
+    "icon-custom",
+    "icon-complete"
+  );
 
   // ASSIGNING ELEMENTS TO PARENT AS CHILDREN
-  taskDiv.appendChild(checkboxToDo);
   taskDiv.appendChild(textParagraph);
-  taskDiv.appendChild(deleteButton);
+  taskDiv.appendChild(buttonDiv);
+  buttonDiv.appendChild(editButton);
+  buttonDiv.appendChild(deleteButton);
+  buttonDiv.appendChild(completedTask);
   textParagraph.textContent = inputTaskField;
 
   // DELETING THE TEXT IN INPUT FIELD
   document.querySelector("#inputTaskField").value = "";
 
   deleteButton.addEventListener("click", onClickDelete);
-  checkboxToDo.addEventListener("click", onClickCompleted);
+  completedTask.addEventListener("click", onClickCompleted);
+  editButton.addEventListener("click", onClickEdit);
 }
 
+function onClickEdit(event) {
+  let taskDiv = event.target.closest(".taskDiv");
+  let textParagraph = taskDiv.querySelector(".textParagraph");
+
+  // Create an input field for editing
+  let editInput = document.createElement("input");
+  editInput.classList.add("textParagraph");
+  editInput.type = "text";
+  editInput.value = textParagraph.textContent;
+
+  // Replace the text paragraph with the input field
+  taskDiv.replaceChild(editInput, textParagraph);
+
+  // Set focus on the input field
+  editInput.focus();
+
+  // Handle the blur event to save changes when focus is lost
+  taskDiv.addEventListener("blur", function () {
+    textParagraph.textContent = editInput.textContent;
+    taskDiv.removeChild(editInput);
+  });
+}
 function onClickCompleted(event) {
-  let completedTask = event.target.parentElement;
-  completedTask.classList.toggle("completedTask");
+  event.target.classList.toggle("completedTask");
+  let taskDiv = event.target.closest(".taskDiv");
+  let textParagraph = taskDiv.querySelector(".textParagraph");
+  textParagraph.classList.toggle("completedTask");
 }
 function onClickDelete(event) {
   let createdItem = event.target.closest("div");
-  createdItem.remove(createdItem);
+  createdItem.parentElement.remove(createdItem);
   // Go brise noviot element od negoviot parent element
 }
 
