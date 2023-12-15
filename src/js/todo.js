@@ -92,4 +92,8 @@ function onClickDelete(event) {
   // Go brise noviot element od negoviot parent element
 }
 
-export { addTaskBtn, createTask };
+function initToDo() {
+  addTaskBtn.addEventListener("click", createTask);
+}
+
+export { initToDo };

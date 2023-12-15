@@ -6,6 +6,14 @@ const carousel = document.querySelector(".carousel");
 const nextBtn = document.querySelector("#nextBtn");
 const prevBtn = document.querySelector("#prevBtn");
 
+function Carousel() {}
+
+Carousel.prototype.init = function () {
+  nextBtn.addEventListener("click", () => changeSlide(1));
+  prevBtn.addEventListener("click", () => changeSlide(-1));
+  createNavCarousel();
+};
+
 function createNavCarousel() {
   for (let i = 0; i < totalSlides; i++) {
     let newBtn = document.createElement("span");
@@ -46,6 +54,7 @@ function changeSlide(direction) {
 }
 //splidejs za gotov slider koristenje
 
-export { changeSlide, nextBtn, prevBtn, createNavCarousel };
-
-//WHEN I CLICK A NAV BUTTON I WANT IT TO NAVIGATE TO A PICTURE
+// export { changeSlide, nextBtn, prevBtn, createNavCarousel };
+export default Carousel;
+// samo eden default export moze da se napravi i povekje obicni
+// export { Carousel };
